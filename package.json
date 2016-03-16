@@ -19,8 +19,7 @@
     "prebuild": "npm run lint && npm test",
     "build": "npm run dist && npm run standalone",
     "gh-pages-build": "npm run prebuild && npm run demo-dist",
-    "postversion": "git push && git push --tags",
-    "prepublish": "npm run dist && npm run standalone"
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "react-autowhatever": "^3.3.0",
