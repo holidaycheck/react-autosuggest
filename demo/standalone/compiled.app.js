@@ -142,11 +142,10 @@
 	  _inherits(App, _React$Component);
 
 	  // eslint-disable-line no-undef
-
 	  function App() {
 	    _classCallCheck(this, App);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
 	    _this.state = {
 	      value: '',
@@ -179,9 +178,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _state = this.state;
-	      var value = _state.value;
-	      var suggestions = _state.suggestions;
+	      var _state = this.state,
+	          value = _state.value,
+	          suggestions = _state.suggestions;
 
 	      var inputProps = {
 	        placeholder: 'Type \'c\'',

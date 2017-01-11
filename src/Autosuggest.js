@@ -140,11 +140,11 @@ class Autosuggest extends Component {
     throw new Error('Couldn\'t find suggestion element');
   }
 
-  maybeCallOnChange(event, newValue, method) {
-    const { value, onChange } = this.props.inputProps;
+  maybeCallOnInput(event, newValue, method) {
+    const { value, onInput } = this.props.inputProps;
 
     if (newValue !== value) {
-      onChange && onChange(event, { newValue, method });
+      onInput && onInput(event, { newValue, method });
     }
   }
 
@@ -204,11 +204,11 @@ class Autosuggest extends Component {
           }
         }
       },
-      onChange: event => {
+      onInput: (event) => {
         const { value } = event.target;
         const { shouldRenderSuggestions } = this.props;
 
-        this.maybeCallOnChange(event, value, 'type');
+        this.maybeCallOnInput(event, value, 'type');
         inputChanged(shouldRenderSuggestions(value), 'type');
         this.maybeCallOnSuggestionsUpdateRequested({ value, reason: 'type' });
       },
@@ -227,7 +227,7 @@ class Autosuggest extends Component {
                 this.getSuggestionValueByIndex(newFocusedSectionIndex, newFocusedItemIndex);
 
               updateFocusedSuggestion(newFocusedSectionIndex, newFocusedItemIndex, value);
-              this.maybeCallOnChange(event, newValue, event.key === 'ArrowDown' ? 'down' : 'up');
+              this.maybeCallOnInput(event, newValue, event.key === 'ArrowDown' ? 'down' : 'up');
             }
             event.preventDefault();
             break;
@@ -260,11 +260,11 @@ class Autosuggest extends Component {
 
             if (valueBeforeUpDown === null) { // Didn't interact with Up/Down
               if (!isOpen) {
-                this.maybeCallOnChange(event, '', 'escape');
+                this.maybeCallOnInput(event, '', 'escape');
                 this.maybeCallOnSuggestionsUpdateRequested({ value: '', reason: 'escape' });
               }
             } else { // Interacted with Up/Down
-              this.maybeCallOnChange(event, valueBeforeUpDown, 'escape');
+              this.maybeCallOnInput(event, valueBeforeUpDown, 'escape');
             }
 
             closeSuggestions('escape');
@@ -289,7 +289,7 @@ class Autosuggest extends Component {
       const clickedSuggestion = this.getSuggestion(sectionIndex, suggestionIndex);
       const clickedSuggestionValue = this.props.getSuggestionValue(clickedSuggestion);
 
-      this.maybeCallOnChange(event, clickedSuggestionValue, 'click');
+      this.maybeCallOnInput(event, clickedSuggestionValue, 'click');
       onSuggestionSelected(event, {
         suggestion: clickedSuggestion,
         suggestionValue: clickedSuggestionValue,

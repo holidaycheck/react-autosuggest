@@ -91,9 +91,9 @@ function reducer(state, action) {
 
     case UPDATE_FOCUSED_SUGGESTION:
       {
-        var value = action.value;
-        var sectionIndex = action.sectionIndex;
-        var suggestionIndex = action.suggestionIndex;
+        var value = action.value,
+            sectionIndex = action.sectionIndex,
+            suggestionIndex = action.suggestionIndex;
 
         var valueBeforeUpDown = state.valueBeforeUpDown === null && typeof value !== 'undefined' ? value : state.valueBeforeUpDown;
 

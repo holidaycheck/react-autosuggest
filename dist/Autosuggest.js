@@ -68,7 +68,7 @@ var Autosuggest = function (_Component) {
   function Autosuggest() {
     _classCallCheck(this, Autosuggest);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Autosuggest).call(this));
+    var _this = _possibleConstructorReturn(this, (Autosuggest.__proto__ || Object.getPrototypeOf(Autosuggest)).call(this));
 
     _this.saveInput = _this.saveInput.bind(_this);
     return _this;
@@ -78,12 +78,12 @@ var Autosuggest = function (_Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.suggestions !== this.props.suggestions) {
-        var suggestions = nextProps.suggestions;
-        var inputProps = nextProps.inputProps;
-        var shouldRenderSuggestions = nextProps.shouldRenderSuggestions;
-        var isCollapsed = nextProps.isCollapsed;
-        var revealSuggestions = nextProps.revealSuggestions;
-        var lastAction = nextProps.lastAction;
+        var suggestions = nextProps.suggestions,
+            inputProps = nextProps.inputProps,
+            shouldRenderSuggestions = nextProps.shouldRenderSuggestions,
+            isCollapsed = nextProps.isCollapsed,
+            revealSuggestions = nextProps.revealSuggestions,
+            lastAction = nextProps.lastAction;
         var value = inputProps.value;
 
 
@@ -95,10 +95,10 @@ var Autosuggest = function (_Component) {
   }, {
     key: 'getSuggestion',
     value: function getSuggestion(sectionIndex, suggestionIndex) {
-      var _props = this.props;
-      var suggestions = _props.suggestions;
-      var multiSection = _props.multiSection;
-      var getSectionSuggestions = _props.getSectionSuggestions;
+      var _props = this.props,
+          suggestions = _props.suggestions,
+          multiSection = _props.multiSection,
+          getSectionSuggestions = _props.getSectionSuggestions;
 
 
       if (multiSection) {
@@ -110,9 +110,9 @@ var Autosuggest = function (_Component) {
   }, {
     key: 'getFocusedSuggestion',
     value: function getFocusedSuggestion() {
-      var _props2 = this.props;
-      var focusedSectionIndex = _props2.focusedSectionIndex;
-      var focusedSuggestionIndex = _props2.focusedSuggestionIndex;
+      var _props2 = this.props,
+          focusedSectionIndex = _props2.focusedSectionIndex,
+          focusedSuggestionIndex = _props2.focusedSuggestionIndex;
 
 
       if (focusedSuggestionIndex === null) {
@@ -157,23 +157,23 @@ var Autosuggest = function (_Component) {
       throw new Error('Couldn\'t find suggestion element');
     }
   }, {
-    key: 'maybeCallOnChange',
-    value: function maybeCallOnChange(event, newValue, method) {
-      var _props$inputProps = this.props.inputProps;
-      var value = _props$inputProps.value;
-      var onChange = _props$inputProps.onChange;
+    key: 'maybeCallOnInput',
+    value: function maybeCallOnInput(event, newValue, method) {
+      var _props$inputProps = this.props.inputProps,
+          value = _props$inputProps.value,
+          onInput = _props$inputProps.onInput;
 
 
       if (newValue !== value) {
-        onChange && onChange(event, { newValue: newValue, method: method });
+        onInput && onInput(event, { newValue: newValue, method: method });
       }
     }
   }, {
     key: 'maybeCallOnSuggestionsUpdateRequested',
     value: function maybeCallOnSuggestionsUpdateRequested(data) {
-      var _props3 = this.props;
-      var onSuggestionsUpdateRequested = _props3.onSuggestionsUpdateRequested;
-      var shouldRenderSuggestions = _props3.shouldRenderSuggestions;
+      var _props3 = this.props,
+          onSuggestionsUpdateRequested = _props3.onSuggestionsUpdateRequested,
+          shouldRenderSuggestions = _props3.shouldRenderSuggestions;
 
 
       if (shouldRenderSuggestions(data.value)) {
@@ -183,10 +183,10 @@ var Autosuggest = function (_Component) {
   }, {
     key: 'willRenderSuggestions',
     value: function willRenderSuggestions() {
-      var _props4 = this.props;
-      var suggestions = _props4.suggestions;
-      var inputProps = _props4.inputProps;
-      var shouldRenderSuggestions = _props4.shouldRenderSuggestions;
+      var _props4 = this.props,
+          suggestions = _props4.suggestions,
+          inputProps = _props4.inputProps,
+          shouldRenderSuggestions = _props4.shouldRenderSuggestions;
       var value = inputProps.value;
 
 
@@ -207,33 +207,33 @@ var Autosuggest = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var _props5 = this.props;
-      var suggestions = _props5.suggestions;
-      var renderSuggestion = _props5.renderSuggestion;
-      var inputProps = _props5.inputProps;
-      var shouldRenderSuggestions = _props5.shouldRenderSuggestions;
-      var onSuggestionSelected = _props5.onSuggestionSelected;
-      var multiSection = _props5.multiSection;
-      var renderSectionTitle = _props5.renderSectionTitle;
-      var id = _props5.id;
-      var getSectionSuggestions = _props5.getSectionSuggestions;
-      var focusInputOnSuggestionClick = _props5.focusInputOnSuggestionClick;
-      var theme = _props5.theme;
-      var isFocused = _props5.isFocused;
-      var isCollapsed = _props5.isCollapsed;
-      var focusedSectionIndex = _props5.focusedSectionIndex;
-      var focusedSuggestionIndex = _props5.focusedSuggestionIndex;
-      var valueBeforeUpDown = _props5.valueBeforeUpDown;
-      var inputFocused = _props5.inputFocused;
-      var inputBlurred = _props5.inputBlurred;
-      var inputChanged = _props5.inputChanged;
-      var updateFocusedSuggestion = _props5.updateFocusedSuggestion;
-      var revealSuggestions = _props5.revealSuggestions;
-      var closeSuggestions = _props5.closeSuggestions;
-      var value = inputProps.value;
-      var _onBlur = inputProps.onBlur;
-      var _onFocus = inputProps.onFocus;
-      var _onKeyDown = inputProps.onKeyDown;
+      var _props5 = this.props,
+          suggestions = _props5.suggestions,
+          renderSuggestion = _props5.renderSuggestion,
+          inputProps = _props5.inputProps,
+          shouldRenderSuggestions = _props5.shouldRenderSuggestions,
+          onSuggestionSelected = _props5.onSuggestionSelected,
+          multiSection = _props5.multiSection,
+          renderSectionTitle = _props5.renderSectionTitle,
+          id = _props5.id,
+          getSectionSuggestions = _props5.getSectionSuggestions,
+          focusInputOnSuggestionClick = _props5.focusInputOnSuggestionClick,
+          theme = _props5.theme,
+          isFocused = _props5.isFocused,
+          isCollapsed = _props5.isCollapsed,
+          focusedSectionIndex = _props5.focusedSectionIndex,
+          focusedSuggestionIndex = _props5.focusedSuggestionIndex,
+          valueBeforeUpDown = _props5.valueBeforeUpDown,
+          inputFocused = _props5.inputFocused,
+          inputBlurred = _props5.inputBlurred,
+          inputChanged = _props5.inputChanged,
+          updateFocusedSuggestion = _props5.updateFocusedSuggestion,
+          revealSuggestions = _props5.revealSuggestions,
+          closeSuggestions = _props5.closeSuggestions;
+      var value = inputProps.value,
+          _onBlur = inputProps.onBlur,
+          _onFocus = inputProps.onFocus,
+          _onKeyDown = inputProps.onKeyDown;
 
       var isOpen = this.willRenderSuggestions();
       var items = isOpen ? suggestions : [];
@@ -256,12 +256,12 @@ var Autosuggest = function (_Component) {
             }
           }
         },
-        onChange: function onChange(event) {
+        onInput: function onInput(event) {
           var value = event.target.value;
           var shouldRenderSuggestions = _this2.props.shouldRenderSuggestions;
 
 
-          _this2.maybeCallOnChange(event, value, 'type');
+          _this2.maybeCallOnInput(event, value, 'type');
           inputChanged(shouldRenderSuggestions(value), 'type');
           _this2.maybeCallOnSuggestionsUpdateRequested({ value: value, reason: 'type' });
         },
@@ -274,13 +274,13 @@ var Autosuggest = function (_Component) {
                   revealSuggestions();
                 }
               } else if (suggestions.length > 0) {
-                var newFocusedSectionIndex = data.newFocusedSectionIndex;
-                var newFocusedItemIndex = data.newFocusedItemIndex;
+                var newFocusedSectionIndex = data.newFocusedSectionIndex,
+                    newFocusedItemIndex = data.newFocusedItemIndex;
 
                 var newValue = newFocusedItemIndex === null ? valueBeforeUpDown : _this2.getSuggestionValueByIndex(newFocusedSectionIndex, newFocusedItemIndex);
 
                 updateFocusedSuggestion(newFocusedSectionIndex, newFocusedItemIndex, value);
-                _this2.maybeCallOnChange(event, newValue, event.key === 'ArrowDown' ? 'down' : 'up');
+                _this2.maybeCallOnInput(event, newValue, event.key === 'ArrowDown' ? 'down' : 'up');
               }
               event.preventDefault();
               break;
@@ -315,12 +315,12 @@ var Autosuggest = function (_Component) {
               if (valueBeforeUpDown === null) {
                 // Didn't interact with Up/Down
                 if (!isOpen) {
-                  _this2.maybeCallOnChange(event, '', 'escape');
+                  _this2.maybeCallOnInput(event, '', 'escape');
                   _this2.maybeCallOnSuggestionsUpdateRequested({ value: '', reason: 'escape' });
                 }
               } else {
                 // Interacted with Up/Down
-                _this2.maybeCallOnChange(event, valueBeforeUpDown, 'escape');
+                _this2.maybeCallOnInput(event, valueBeforeUpDown, 'escape');
               }
 
               closeSuggestions('escape');
@@ -331,8 +331,8 @@ var Autosuggest = function (_Component) {
         }
       });
       var onMouseEnter = function onMouseEnter(event, _ref) {
-        var sectionIndex = _ref.sectionIndex;
-        var itemIndex = _ref.itemIndex;
+        var sectionIndex = _ref.sectionIndex,
+            itemIndex = _ref.itemIndex;
 
         updateFocusedSuggestion(sectionIndex, itemIndex);
       };
@@ -343,15 +343,14 @@ var Autosuggest = function (_Component) {
         _this2.justClickedOnSuggestion = true;
       };
       var onClick = function onClick(event) {
-        var _getSuggestionIndices = _this2.getSuggestionIndices(_this2.findSuggestionElement(event.target));
-
-        var sectionIndex = _getSuggestionIndices.sectionIndex;
-        var suggestionIndex = _getSuggestionIndices.suggestionIndex;
+        var _getSuggestionIndices = _this2.getSuggestionIndices(_this2.findSuggestionElement(event.target)),
+            sectionIndex = _getSuggestionIndices.sectionIndex,
+            suggestionIndex = _getSuggestionIndices.suggestionIndex;
 
         var clickedSuggestion = _this2.getSuggestion(sectionIndex, suggestionIndex);
         var clickedSuggestionValue = _this2.props.getSuggestionValue(clickedSuggestion);
 
-        _this2.maybeCallOnChange(event, clickedSuggestionValue, 'click');
+        _this2.maybeCallOnInput(event, clickedSuggestionValue, 'click');
         onSuggestionSelected(event, {
           suggestion: clickedSuggestion,
           suggestionValue: clickedSuggestionValue,
@@ -374,8 +373,8 @@ var Autosuggest = function (_Component) {
         });
       };
       var itemProps = function itemProps(_ref2) {
-        var sectionIndex = _ref2.sectionIndex;
-        var itemIndex = _ref2.itemIndex;
+        var sectionIndex = _ref2.sectionIndex,
+            itemIndex = _ref2.itemIndex;
 
         return {
           'data-section-index': sectionIndex,
@@ -402,8 +401,7 @@ var Autosuggest = function (_Component) {
         itemProps: itemProps,
         theme: theme,
         id: id,
-        ref: this.saveInput, __self: this
-      });
+        ref: this.saveInput });
     }
   }]);
 

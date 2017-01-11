@@ -77,7 +77,7 @@ var AutosuggestContainer = function (_Component) {
   function AutosuggestContainer() {
     _classCallCheck(this, AutosuggestContainer);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AutosuggestContainer).call(this));
+    var _this = _possibleConstructorReturn(this, (AutosuggestContainer.__proto__ || Object.getPrototypeOf(AutosuggestContainer)).call(this));
 
     var initialState = {
       isFocused: false,
@@ -102,20 +102,20 @@ var AutosuggestContainer = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var multiSection = _props.multiSection;
-      var shouldRenderSuggestions = _props.shouldRenderSuggestions;
-      var suggestions = _props.suggestions;
-      var onSuggestionsUpdateRequested = _props.onSuggestionsUpdateRequested;
-      var getSuggestionValue = _props.getSuggestionValue;
-      var renderSuggestion = _props.renderSuggestion;
-      var renderSectionTitle = _props.renderSectionTitle;
-      var getSectionSuggestions = _props.getSectionSuggestions;
-      var inputProps = _props.inputProps;
-      var onSuggestionSelected = _props.onSuggestionSelected;
-      var focusInputOnSuggestionClick = _props.focusInputOnSuggestionClick;
-      var theme = _props.theme;
-      var id = _props.id;
+      var _props = this.props,
+          multiSection = _props.multiSection,
+          shouldRenderSuggestions = _props.shouldRenderSuggestions,
+          suggestions = _props.suggestions,
+          onSuggestionsUpdateRequested = _props.onSuggestionsUpdateRequested,
+          getSuggestionValue = _props.getSuggestionValue,
+          renderSuggestion = _props.renderSuggestion,
+          renderSectionTitle = _props.renderSectionTitle,
+          getSectionSuggestions = _props.getSectionSuggestions,
+          inputProps = _props.inputProps,
+          onSuggestionSelected = _props.onSuggestionSelected,
+          focusInputOnSuggestionClick = _props.focusInputOnSuggestionClick,
+          theme = _props.theme,
+          id = _props.id;
 
 
       return _react2.default.createElement(_Autosuggest2.default, { multiSection: multiSection,
@@ -132,8 +132,7 @@ var AutosuggestContainer = function (_Component) {
         theme: mapToAutowhateverTheme(theme),
         id: id,
         inputRef: this.saveInput,
-        store: this.store, __self: this
-      });
+        store: this.store });
     }
   }]);
 
@@ -152,8 +151,8 @@ AutosuggestContainer.propTypes = {
       throw new Error('\'inputProps\' must have \'value\'.');
     }
 
-    if (!inputProps.hasOwnProperty('onChange')) {
-      throw new Error('\'inputProps\' must have \'onChange\'.');
+    if (!inputProps.hasOwnProperty('onInput')) {
+      throw new Error('\'inputProps\' must have \'onInput\'.');
     }
   },
   shouldRenderSuggestions: _react.PropTypes.func,
